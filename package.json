@@ -1,0 +1,29 @@
+{
+  "name": "ur-employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanAguilera/Ur-Employee-Tracker.git"
+  },
+  "author": "Daniel Aguilera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanAguilera/Ur-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/DanAguilera/Ur-Employee-Tracker#readme",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "inquirer": "^8.2.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "console.table": "^0.10.0"
+  }
+}
