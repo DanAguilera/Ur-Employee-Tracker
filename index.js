@@ -1,17 +1,23 @@
-const mysql = require("mysql");
-const inquirer = require("inquirer");
+const mysql = require('mysql');
+const inquirer = require('inquirer');
 require("console.table");
+const express = require('express');
+
+const PORT = process.env.PORT || 8801;
+const app = express();
+
+// Express middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 var connection = mysql.createConnection({
   host: "localhost",
-  port: 8801,
+  // port: 8801,
   user: "root",
   password: "D9F=r^vJa7",
   database: "employeeTrackerDB"
 });
 
-const port = process.env.PORT || 8801;
-app.listen(port, () => console.log(`Listening on port ${port}`));
 connection.connect(function (err) {
   if (err) throw err;
   firstPrompt();
@@ -27,11 +33,13 @@ function firstPrompt() {
       message: "Would you like to do?",
       choices: [
         "View All Employees",
-        "View Employees by Department",
+        "View All Roles",
+        "View All Departments",
         "Add Employee",
         "Remove Employees",
         "Update Employee Role",
         "Add Role",
+        "Add Department",
         "End"]
     })
     .then(function ({ task }) {
@@ -422,3 +430,7 @@ function promptAddRole(departmentChoices) {
 
     });
 }
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
